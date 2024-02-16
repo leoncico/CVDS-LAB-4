@@ -4,8 +4,19 @@ public class BonusScore implements GameScore{
 
     @Override
     public int calculateScore(int correctCount, int incorrectCount) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calculateScore'");
+        int points = 0;
+        boolean flag = false;
+        int result;
+
+        if (points==0 &&flag ){
+            result =  correctCount * 10;
+        }
+        else{
+            result = (correctCount * 10) - (incorrectCount * 5);
+            flag = true;
+        }
+
+        return result;
     }
     
 }

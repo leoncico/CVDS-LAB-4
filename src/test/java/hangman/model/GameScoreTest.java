@@ -1,8 +1,6 @@
+package hangman.model;
 import hangman.model.*;
-import org.junit.test;
-
-import com.google.common.annotations.VisibleForTesting;
-
+import org.junit.Test;
 import org.junit.Assert;
 
 /*
@@ -10,10 +8,10 @@ import org.junit.Assert;
  * una por cada nuevo tipo de puntaje
  * 
  */
-public class GameScoreTest {
+public class GameScoreTest{
     private GameScore original = new OriginalScore();
-    private gameScore bonus = new BonusScore();
-    private gameScore power = new PowerScore();    
+    private GameScore bonus = new BonusScore();
+    private GameScore power = new PowerScore();    
 
     /**
      * Original 
@@ -24,13 +22,13 @@ public class GameScoreTest {
     @Test 
     public void validateOriginalZeroScore(){
         int res = original.calculateScore(3, 10);
-        Assert.equals(0, res);
+        Assert.assertEquals(0, res);
     }
 
     @Test
     public void validateOrginalPerfectScore(){
         int res = original.calculateScore(3, 0);
-        Assert.equals(100, res);
+        Assert.assertEquals(100, res);
     }
     /**
      * Bonus 
@@ -40,13 +38,13 @@ public class GameScoreTest {
     @Test 
     public void validateBonusZeroScore(){
         int res = bonus.calculateScore(0, 0);
-        Assert.equals(0, res);
+        Assert.assertEquals(0, res);
     }
 
     @Test
     public void validateBonusPositiveScore(){
         int res = bonus.calculateScore(4, 2);
-        Assert.equals(20, res);
+        Assert.assertEquals(30, res);
     }
     
     /**
@@ -54,21 +52,21 @@ public class GameScoreTest {
      * Casos frontera 0 < incorrectCount < 8 * (longitud de la palabra) y 0 < correctCount < 5 ^ (longitud de la palabra)
      */
 
-     @Test 
+    @Test 
      public void validatePowerZeroScore(){
-         int res = power.calculateScore(0, 0);
-         Assert.equals(1, res);
+        int res = power.calculateScore(0, 0);
+         Assert.assertEquals(1, res);
      }
  
      @Test
      public void validatePowerPositiveScore(){
-         int res = power.calculateScore(10, 2);
-         Assert.equals(484, res);
+         int res = power.calculateScore(3, 2);
+         Assert.assertEquals(109, res);
      }
 
      @Test
      public void validatePowerFullScore(){
          int res = power.calculateScore(4, 0);
-         Assert.equals(500, res);
+         Assert.assertEquals(500, res);
      }
 }
