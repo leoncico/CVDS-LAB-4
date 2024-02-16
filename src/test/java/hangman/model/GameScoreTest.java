@@ -55,13 +55,18 @@ public class GameScoreTest{
     @Test 
      public void validatePowerZeroScore(){
         int res = power.calculateScore(0, 0);
-         Assert.assertEquals(1, res);
+         Assert.assertEquals(0, res);
      }
  
      @Test
      public void validatePowerPositiveScore(){
          int res = power.calculateScore(3, 2);
-         Assert.assertEquals(109, res);
+         Assert.assertEquals(139, res);
+     }
+     @Test
+     public void validatePowerPositiveScore2(){
+         int res = power.calculateScore(2, 1);
+         Assert.assertEquals(22, res);
      }
 
      @Test
